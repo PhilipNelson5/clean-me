@@ -7,7 +7,7 @@ A little reminder tool to keep track of tasks to clean on an interval based sche
 # Roadmap
 - [ ] Front
   - [X] Basic stubbed out functionality
-  - [ ] Sort tasks by priority
+  - [X] Sort tasks by priority
   - [ ] Replace stubs with REST API
 - [ ] Back
   - [ ] Basic static file server
