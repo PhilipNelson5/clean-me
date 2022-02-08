@@ -1,16 +1,15 @@
-const { randomUUID } = require('crypto');
-const sqlite3 = require('sqlite3').verbose();
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
-const app = express();
+const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+const { randomUUID } = require('crypto');
 
 const toUnix = (d) => Math.floor(d.getTime() / 1000);
 const success = 'success';
-const DATABASE = 'tasks.db'
+const DATABASE = 'tasks.db';
+const PORT = 9000;
 
 const db_exists = fs.existsSync(DATABASE);
-console.log('Database', db_exists ? "exists" : "does not exist");
 const db = new sqlite3.Database(DATABASE, (err) => {
     if (err) {
         console.error('failed to create database');
@@ -28,13 +27,14 @@ CREATE TABLE tasks (
     cleaned INTEGER NOT NULL,
     interval INTEGER NOT NULL
 );
-`)}
+`);}
 
+const app = express();
 app.use(express.static(path.join(__dirname, '../Client', 'build')));
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/', function (req, res) {
+app.get('/', function (_, res) {
     res.sendFile(path.join(__dirname, '../Client', 'build', 'index.html'));
 });
 
@@ -54,7 +54,7 @@ app.get('/api/tasks', (_, res) => {
 
 app.post('/api/task', (req, res) => {
     const task = req.body;
-    console.log('create', task);
+    console.log('create', task.title);
     const id = randomUUID();
     db.run(
         `INSERT INTO tasks(id, title, cleaned, interval) VALUES(?, ?, ?, ?)`,
@@ -106,6 +106,6 @@ app.delete('/api/task', (req, res) => {
 })
 
 
-app.listen(9000, () => {
-    console.log('Ready');
+app.listen(PORT, () => {
+    console.log('Listening on', PORT);
 });
