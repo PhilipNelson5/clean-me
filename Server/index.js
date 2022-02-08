@@ -46,7 +46,6 @@ app.get('/api/tasks', (_, res) => {
             console.log(err);
             res.status(500).send({ err })
         } else {
-            console.log(rows);
             res.send({tasks: rows});
         }
     })
