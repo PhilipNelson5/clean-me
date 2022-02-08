@@ -7,11 +7,11 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { BiTrash } from "react-icons/bi";
 import { green, yellow, orange, red } from '@mui/material/colors';
 import { useState } from "react";
-import {IoSparkles} from 'react-icons/io5'
+import { IoSparkles } from 'react-icons/io5'
 
 const toUnix = (d) => Math.floor(d.getTime() / 1000);
 
-const Task = ({task, onDelete, onClean}) => {
+const Task = ({ task, onDelete, onClean }) => {
     const [progress, setProgress] = useState(0);
     const [color, setColor] = useState('success');
     const [openCleanDialog, setOpenCleanDialog] = useState(false);

@@ -1,5 +1,5 @@
-import {BiPlus} from "react-icons/bi"
-import {useState} from 'react'
+import { BiPlus } from "react-icons/bi"
+import { useState } from 'react'
 
 function AddButton({onToggleTaskForm}) {
     const [open, setOpen] = useState(false);

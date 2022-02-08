@@ -8,10 +8,11 @@ A little reminder tool to keep track of tasks to clean on an interval based sche
 - [ ] Front
   - [X] Basic stubbed out functionality
   - [X] Sort tasks by priority
-  - [ ] Replace stubs with REST API
+  - [ ] Do not allow task without title to be created
+  - [X] Replace stubs with REST API
 - [ ] Back
-  - [ ] Basic static file server
-  - [ ] Stubbed out REST API
+  - [X] Basic static file server
+  - [X] Stubbed out REST API
   - [ ] Replace stubs with database
 
 ## Available Scripts

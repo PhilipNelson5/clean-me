@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 const toUnix = (d) => Math.floor(d.getTime() / 1000);
 const toDateInput = d => d.toISOString().substring(0, 10);
-const AddTask = ({onAddTask}) => {
+const AddTask = ({ onAddTask }) => {
     const [title, setTitle] = useState('');
     const [interval, setInterval] = useState(30);
     const [cleaned, setCleaned] = useState(toDateInput(new Date()));

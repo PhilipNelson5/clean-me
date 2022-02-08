@@ -1,7 +1,7 @@
 import AddButton from "./AddButton";
 import RefreshButton from "./RefreshButton";
 
-const Header = ({onReloadTasks, onToggleTaskForm}) => {
+const Header = ({ onReloadTasks, onToggleTaskForm }) => {
     return (
         <header>
             <RefreshButton onReloadTasks={onReloadTasks}/>
