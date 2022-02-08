@@ -30,7 +30,7 @@ function App() {
     }
     
     const addTask = (task) => {
-        console.log('add', task);
+        console.debug('add', task);
         fetch('/api/task', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'}, 
@@ -42,13 +42,13 @@ function App() {
                 task.id = data.id;
                 setTasks([...tasks, task]);
             } else {
-                console.log(data);
+                console.error(data);
             }
         })
     }
 
     const cleanTask = (id) => {
-        console.log('clean', id);
+        console.debug('clean', id);
         const now = toUnix(new Date());
 
         fetch('/api/clean', {
@@ -66,13 +66,13 @@ function App() {
                     ...tasks.slice(i+1)
                 ]);
             } else {
-                console.log(data);
+                console.error(data);
             }
         })
     }
 
     const deleteTask = (id) => {
-        console.log('delete', id);
+        console.debug('delete', id);
         fetch('/api/task', {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}, 
@@ -83,7 +83,7 @@ function App() {
             if(data.success) {
                 setTasks(tasks.filter(t => t.id !== id));
             } else {
-                console.log(data);
+                console.error(data);
             }
         })
     }

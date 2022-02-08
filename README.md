@@ -13,7 +13,7 @@ A little reminder tool to keep track of tasks to clean on an interval based sche
 - [ ] Back
   - [X] Basic static file server
   - [X] Stubbed out REST API
-  - [ ] Replace stubs with database
+  - [X] Replace stubs with database
 
 ## Available Scripts
 
